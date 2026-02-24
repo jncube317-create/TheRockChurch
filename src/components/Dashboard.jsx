@@ -362,7 +362,7 @@ function Dashboard({ isDarkMode, toggleDarkMode }) {
                             <div className="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center border border-emerald-500/30">
                                 <div className="w-4 h-4 rounded-full border-2 border-emerald-400/60" />
                             </div>
-                            <span className="font-bold tracking-tight text-xl uppercase">The Rock</span>
+                            <span className="font-bold tracking-tight text-xl uppercase">The Rock Church</span>
                         </div>
                     )}
                     <button
