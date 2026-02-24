@@ -221,6 +221,10 @@ function SignIn({ onSignIn, isDarkMode, toggleDarkMode }) {
                         <p className={`text-[10px] uppercase tracking-widest ${isDarkMode ? 'text-white/60' : 'text-slate-400'} font-medium`}>
                             V2.4.0 • THE ROCK CHURCH
                         </p>
+                        <div className="flex gap-4 justify-center text-[10px] font-bold uppercase text-blue-500/50">
+                            <span>URL: {import.meta.env.VITE_SUPABASE_URL ? 'OK' : 'MISSING'}</span>
+                            <span>KEY: {import.meta.env.VITE_SUPABASE_ANON_KEY ? 'OK' : 'MISSING'}</span>
+                        </div>
                     </div>
                 </div>
             </main>
