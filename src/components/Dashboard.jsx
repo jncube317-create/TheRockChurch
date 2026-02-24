@@ -222,6 +222,17 @@ function Dashboard({ isDarkMode, toggleDarkMode }) {
         }
     }
 
+    const handleLogout = async () => {
+        try {
+            const { error } = await supabase.auth.signOut()
+            if (error) throw error
+            // The App.jsx state handles the UI switch back to SignIn
+            window.location.reload() // Force clear all states
+        } catch (error) {
+            console.error('Logout failed:', error.message)
+        }
+    }
+
     const updateMetric = async () => {
         if (!editingMetric || !metricValue) return
 
@@ -434,6 +445,13 @@ function Dashboard({ isDarkMode, toggleDarkMode }) {
                             <p className="text-sm font-bold">Admin User</p>
                             <p className={`text-[10px] ${isDarkMode ? 'text-slate-500' : 'text-slate-400'} font-medium`}>Administration</p>
                         </div>
+                        <button
+                            onClick={handleLogout}
+                            className={`p-2.5 rounded-xl transition-all ${isDarkMode ? 'bg-white/5 text-slate-400 hover:bg-white/10 hover:text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200 hover:text-slate-900'} border ${isDarkMode ? 'border-white/5' : 'border-slate-200'}`}
+                            title="Sign Out"
+                        >
+                            <LogOut size={18} />
+                        </button>
                         <label className="relative w-10 h-10 rounded-full cursor-pointer group overflow-hidden">
                             <input type="file" className="hidden" accept="image/*" onChange={handleProfileUpload} />
                             {profilePic ? (
