@@ -24,7 +24,8 @@ function SignIn({ onSignIn, isDarkMode, toggleDarkMode }) {
                         data: {
                             full_name: fullName,
                             department: department
-                        }
+                        },
+                        emailRedirectTo: window.location.origin
                     }
                 })
                 if (error) throw error
